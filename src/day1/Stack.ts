@@ -6,7 +6,6 @@ export default class Stack<T> {
     public length: number;
     private sp?: StackNode<T>;
 
-
     constructor() {
         this.sp = undefined;
         this.length = 0;
@@ -21,6 +20,7 @@ export default class Stack<T> {
 
         this.sp = { value: item, next: this.sp };
     }
+
     pop(): T | undefined {
         if (this.sp === undefined) {
             return undefined;
@@ -32,6 +32,7 @@ export default class Stack<T> {
         this.sp = this.sp.next;
         return value;
     }
+
     peek(): T | undefined {
         return this.sp?.value;
     }
