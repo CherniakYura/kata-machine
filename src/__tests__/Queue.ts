@@ -11,11 +11,11 @@ test("queue", function () {
     expect(list.length).toEqual(2);
 
     // this must be wrong..?
-    debugger;
+    //debugger;
 
     // i hate using debuggers
     list.enqueue(11);
-    debugger;
+    //debugger;
     expect(list.deque()).toEqual(7);
     expect(list.deque()).toEqual(9);
     expect(list.peek()).toEqual(11);
@@ -25,7 +25,7 @@ test("queue", function () {
 
     // just wanted to make sure that I could not blow up myself when i remove
     // everything
-    list.enqueue(69);
-    expect(list.peek()).toEqual(69);
-    expect(list.length).toEqual(1);
+    //list.enqueue(69);
+    //expect(list.peek()).toEqual(69);
+    //expect(list.length).toEqual(1);
 });

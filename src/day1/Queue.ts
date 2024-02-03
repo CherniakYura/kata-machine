@@ -4,8 +4,8 @@ type Item<T> = {
 }
 export default class Queue<T> {
     public length: number;
-    public head?: Item<T>;
-    public tail?: Item<T>;
+    private head?: Item<T>;
+    private tail?: Item<T>;
 
     constructor() {
         this.head = this.tail = undefined
@@ -16,23 +16,29 @@ export default class Queue<T> {
         const node = { value: item }
         this.length++;
         if (!this.tail) {
-            this.head = this.tail = node
+            this.tail = this.head = node
             return
         }
 
         this.tail.next = node
+        this.tail = node
     }
+
     deque(): T | undefined {
         if (!this.head) {
             return undefined
         }
 
         this.length--
-        let h = this.head
-        this.head = h.next;
-        h.next = undefined
+
+        const h = this.head
+        this.head = this.head.next;
+
+        //h.next = undefined
+
         return h.value
     }
+
     peek(): T | undefined {
         return this.head?.value
     }
